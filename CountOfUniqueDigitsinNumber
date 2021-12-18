@@ -1,0 +1,36 @@
+Problem Statement: find count of digits that are appearing only one time in given no. 'n'.
+ex. input: n=12321, output: count=1
+ex.2 input: n=767654, output: count=2
+ex.3 input: n=7776354, output: count=4
+
+
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Jinal Sojitra
+ */
+public class CountOfUniqueDigitsinNumber {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int countOfUnique=0;
+        
+        int[] count=new int[10];
+        
+        while(n>0){
+            int digit=n%10;
+            count[digit]+=1;
+            n/=10;
+        }
+        
+        for(int j=0;j<10;j++){
+            if(count[j]==1){
+                countOfUnique++;
+            }
+        }
+        
+        System.out.println(countOfUnique);
+    }
+}
