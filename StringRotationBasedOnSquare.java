@@ -37,7 +37,7 @@ public class StringRotationOnSquare {
             }
             else{
                 
-                System.out.println(word.substring(2,len)+word.substring(0,2));
+                System.out.println(word.substring(2)+word.substring(0,2));
             }
         
         }
