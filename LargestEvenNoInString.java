@@ -1,8 +1,9 @@
-Problem Statement: given String containing letters, Special Characters, digits. find out largest possible even no. after removing duplicate digits, and print that even no.,
+/*Problem Statement: given String containing letters, Special Characters, digits. find out largest possible even no. after removing duplicate digits, and print that even no.,
 if even no. is not possible then return -1.
 
 ex. input: "infosys@337" output: -1
-ex.2 input: "Jinal@0505" output: 50
+ex.2 input: "Jinal@0505" output: 50 
+*/
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,20 +24,28 @@ public class LargestEvenNoInString {
         HashSet<Integer> hs=new HashSet<>();
         
         for(int i=0;i<s.length();i++){
-            hs.add(Integer.parseInt(String.valueOf(s.charAt(i))));
+            hs.add(s.charAt(i)-'0');
         }
+        
+        //making arraylist because we have to sort in descending order to get max value.
         ArrayList<Integer> a=new ArrayList<>(hs);
         
         Collections.sort(a, Collections.reverseOrder());
         
-        boolean noEven=true;
+        //756
+        //865
+        
+        //766
+        
+        boolean notEven=true;
         int n=a.size();
         for(int i=n-1;i>0;i--){
             if(a.get(i)%2==0){
-            a.add(a.get(i));
-            a.remove(i);
-            noEven=false;
-            break;
+                //first even digit will be appended at end that digit will be least so we will get max no.
+                a.add(a.get(i));
+                a.remove(i);
+                notEven=false;
+                break;
             }
         }
         
